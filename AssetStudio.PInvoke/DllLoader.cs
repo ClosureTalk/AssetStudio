@@ -27,14 +27,10 @@ namespace AssetStudio.PInvoke
 
         private static string GetDirectedDllDirectory()
         {
-            var localPath = Process.GetCurrentProcess().MainModule.FileName;
+            var localPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
             var localDir = Path.GetDirectoryName(localPath);
 
-            var subDir = Environment.Is64BitProcess ? "x64" : "x86";
-
-            var directedDllDir = Path.Combine(localDir, subDir);
-
-            return directedDllDir;
+            return localDir;
         }
 
         private static class Win32
