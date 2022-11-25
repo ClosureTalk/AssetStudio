@@ -24,6 +24,7 @@
 #endif
 #include <stdarg.h>
 #include <new>  // needed for placement new, _msize, _expand
+#include <cstring>
 
 #define CRND_RESTRICT __restrict
 
@@ -3074,7 +3075,7 @@ class crn_unpacker {
 
   unitycrnd::vector<uint16> m_alpha_endpoints;
   unitycrnd::vector<uint16> m_alpha_selectors;
-  
+
   struct block_buffer_element {
     uint16 endpoint_reference;
     uint16 color_endpoint_index;
